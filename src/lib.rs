@@ -132,6 +132,7 @@ lazy_static! {
 }
 
 
+/// Check if a given string is a key.
 pub fn is_key(value: &str) -> bool {
     KEYMAP.contains(&value)
 }
