@@ -2,8 +2,12 @@
 name = "pearl2-rs"
 version = "0.1.0"
 edition = "2021"
+description = "A simple Epiphan Pearl-2 API message parser"
 readme = "README.md"
-
+repository = "https://github.com/STRUCTiX/pearl2-rs"
+license-file = "LICENSE"
+keywords = ["epiphan", "pearl2", "videosystem"]
+categories = ["parser-implementations"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
