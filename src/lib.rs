@@ -127,16 +127,18 @@ fn init_keymap() -> Vec<&'static str> {
     ]
 }
 
-lazy_static! {
-    static ref KEYMAP: Vec<&'static str> = init_keymap();
-}
+
 
 
 /// Check if a given string is a key.
 pub fn is_key(value: &str) -> bool {
+    lazy_static! {
+        static ref KEYMAP: Vec<&'static str> = init_keymap();
+    }
     KEYMAP.contains(&value)
 }
 
+/// parse a given response string from the pearl API into a BTreeMap.
 pub fn parse(response: &str) -> BTreeMap<&str, &str> {
     let split = response.split(" ").filter(|&x| x != "=");
     let mut result = BTreeMap::new();
