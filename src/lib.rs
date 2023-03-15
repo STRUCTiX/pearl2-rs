@@ -138,7 +138,7 @@ pub fn is_key(value: &str) -> bool {
     KEYMAP.contains(&value)
 }
 
-/// parse a given response string from the pearl API into a BTreeMap.
+/// Parse a given response string from the pearl API into a BTreeMap.
 pub fn parse(response: &str) -> BTreeMap<&str, &str> {
     let split = response.split(" ").filter(|&x| x != "=");
     let mut result = BTreeMap::new();
@@ -159,6 +159,16 @@ pub fn parse(response: &str) -> BTreeMap<&str, &str> {
     }
 
     result
+}
+
+/// Create a GET querystring from a map.
+pub fn create_querystring(parameters: BTreeMap<&str, &str>) -> String {
+    let mut querystring = String::from("?");
+    for (&key, &value) in parameters.iter() {
+        querystring.push_str(&format!("{}={}&", key, value));
+    }
+    querystring.pop();
+    querystring
 }
 
 
