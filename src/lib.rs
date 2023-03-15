@@ -203,4 +203,14 @@ mod tests {
             assert_eq!(validate.get(k).unwrap(), v);
         }
     }
+
+    #[test]
+    fn test_querystring() {
+        let mut input = BTreeMap::new();
+        input.insert("slicemode", "on");
+        input.insert("audiopreset", "test");
+
+        assert_eq!(create_querystring(input), "?audiopreset=test&slicemode=on");
+    }
+
 }
